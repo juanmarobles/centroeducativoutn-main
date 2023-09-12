@@ -48,6 +48,9 @@ Route::post('/procesar-formularioempleo', [FormEmpleoController::class, 'procesa
 Route::get('/comentarios', [ComentarioController::class, 'index'])->name('comentarios');
 Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentarios.store'); 
 
+//verificacion de login
+Route::post('/SvLogin', 'AuthController@validarUsuario');
+
 
 
 

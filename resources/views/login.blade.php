@@ -39,7 +39,7 @@
                                             <h1 class="h4 text-gray-900 mb-4">Centro Educativo</h1>
                                             <p>Login</p>
                                         </div>
-                                        <form class="user" action="SvLogin" method="POST" >
+                                        <form class="user" action="{{ url('SvLogin') }}" method="POST">
                                             <div class="form-group">
                                                 <input type="email" name="email" class="form-control form-control-user"
                                                        id="exampleInputEmail" aria-describedby="emailHelp"

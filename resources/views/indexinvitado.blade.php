@@ -272,6 +272,7 @@
 
             <section class="page-section portfolio" id="BienEstarEstudiantil">
                 <div class="container">
+                <div class="text-center"> <!-- Agrega este div con la clase text-center -->
 
                     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Bienestar Estudiantil</h2>
 
@@ -427,6 +428,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </section>
 
 

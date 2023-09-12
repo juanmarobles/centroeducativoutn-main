@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Usuarios;
+use Illuminate\Support\Facades\Auth;
+
 
 use Illuminate\Http\Request;
 
@@ -32,4 +34,22 @@ class UsuariosController extends Controller
         // Redireccionar o realizar alguna acción después de guardar el usuario
         return view('login')->with('success', 'El formulario se envió con éxito.');
     }
+    
+    public function validarUsuario(Request $request)
+{
+    // Validar los datos del formulario (puedes utilizar Laravel Validation)
+    $request->validate([
+        'email' => 'required|email',
+        'pw' => 'required|string',
+    ]);
+
+    // Intentar autenticar al usuario
+    if (Auth::attempt(['email' => $request->email, 'password' => $request->pw])) {
+        // La autenticación fue exitosa
+        return view('indexinvitado'); // Redirigir al usuario a la página deseada
+    } else {
+        // La autenticación falló
+        return redirect()->back()->with('error', 'Credenciales inválidas');
+    }
+}
 }
