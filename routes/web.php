@@ -5,6 +5,7 @@ use App\Http\Controllers\FormInscripcionController;
 use App\Http\Controllers\FormEmpleoController; 
 use App\Http\Controllers\UsuariosController; 
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\AuthController;
 
 
 /*
@@ -18,7 +19,7 @@ use App\Http\Controllers\ComentarioController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/indexinvitado', function () {
     return view('indexinvitado');
 })->name('indexinvitado');
 
@@ -34,10 +35,6 @@ Route::get('/loginerror', function () {
     return view('loginerror');
 })->name('loginerror');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
 
 Route::post('/crear-usuario', [UsuariosController::class, 'crearUsuario'])->name('crear.usuario');
 
@@ -48,8 +45,18 @@ Route::post('/procesar-formularioempleo', [FormEmpleoController::class, 'procesa
 Route::get('/comentarios', [ComentarioController::class, 'index'])->name('comentarios');
 Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentarios.store'); 
 
-//verificacion de login
-Route::post('/SvLogin', 'AuthController@validarUsuario');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::view('/index', 'index')->name('index'); // Ruta de redirección a index.blade.php
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
+Route::get('/', function () {
+    return view('index');
+})->name('index');
+
+Route::get('/descargar', function () {
+    return view('descargar');
+})->name('descargar');
+
 
 
 

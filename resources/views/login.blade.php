@@ -39,32 +39,21 @@
                                             <h1 class="h4 text-gray-900 mb-4">Centro Educativo</h1>
                                             <p>Login</p>
                                         </div>
-                                        <form class="user" action="{{ url('SvLogin') }}" method="POST">
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control form-control-user"
-                                                       id="exampleInputEmail" aria-describedby="emailHelp"
-                                                       placeholder="Enter Email Address...">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="pw" class="form-control form-control-user"
-                                                       id="exampleInputPassword" placeholder="Password">
-                                            </div>
-                                            <!-- comment 
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox small">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">Remember
-                                                        Me</label>
-                                                </div>
-                                            </div>
-                                            <a href="index.jsp" class="btn btn-primary btn-user btn-block">
-                                                Login
-                                            </a> -->  
-                                            <button class="btn btn-primary btn-user btn-block" id="submitButton" type="submit">
-                                                Login
-                                            </button>
 
-                                        </form>
+                                            @section('content')
+                                                <form class="user" action="{{ route('login') }}" method="POST">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                                    </div>
+                                                    <button class="btn btn-primary btn-user btn-block" type="submit">
+                                                        Login
+                                                    </button>
+                                                </form>
+
                                         <hr>
                                         <!-- 
                                         <div class="text-center">
